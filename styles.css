@@ -974,5 +974,45 @@ button {
   .nav-toggle {
     display: none !important;
   }
+}
 
+/* Print styles */
+@media print {
+  @page {
+    margin: 12mm;
+  }
+
+  html,
+  body {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    box-shadow: none !important;
+  }
+
+  .to-top,
+  .nav-toggle {
+    display: none !important;
+  }
+
+  .section {
+    padding: 36px 0;
+  }
+
+  .hero {
+    padding-top: 36px;
+  }
+
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 10px;
+    color: #6b7280;
+    word-break: break-all;
+  }
 }
