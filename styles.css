@@ -674,22 +674,9 @@ button {
   position: relative;
   padding-left: 26px;
   margin-bottom: 18px;
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity var(--transition-med), transform var(--transition-med), background-color var(--transition-med);
-  border-radius: var(--radius-md);
-  padding: 12px 12px 12px 26px;
-  margin-left: -12px;
-  margin-right: -12px;
-  background: rgba(4, 7, 20, 0.96);
-  border: 1px solid var(--border-subtle);
-  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.7);
-}
-
-.timeline-item:hover {
-  border-color: var(--accent-soft);
-  box-shadow: 0 18px 60px rgba(15, 23, 42, 0.9);
-  transform: translateY(-2px);
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity var(--transition-med), transform var(--transition-med);
 }
 
 .timeline-item::before {
@@ -720,6 +707,15 @@ button {
   border-radius: 14px;
   padding: 12px 14px;
   border: 1px solid var(--border-subtle);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.7);
+  transition: transform var(--transition-med), box-shadow var(--transition-med),
+    border-color var(--transition-med);
+}
+
+.timeline-item:hover .timeline-content {
+  border-color: var(--accent-soft);
+  box-shadow: 0 18px 60px rgba(15, 23, 42, 0.9);
+  transform: translateY(-2px);
 }
 
 .timeline-role {
@@ -951,31 +947,6 @@ button {
   }
 }
 
-@media print {
-  @page {
-    margin: 12mm;
-  }
-
-  html,
-  body {
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-  }
-
-  *,
-  *::before,
-  *::after {
-    animation: none !important;
-    transition: none !important;
-    box-shadow: none !important;
-  }
-
-  .to-top,
-  .nav-toggle {
-    display: none !important;
-  }
-}
-
 /* Print styles */
 @media print {
   @page {
@@ -994,6 +965,17 @@ button {
     animation: none !important;
     transition: none !important;
     box-shadow: none !important;
+  }
+
+  .site-header {
+    position: static !important;
+  }
+
+  .reveal-on-scroll,
+  .case-card,
+  .timeline-item {
+    opacity: 1 !important;
+    transform: none !important;
   }
 
   .to-top,
