@@ -5,6 +5,66 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Владимир Пастушенко — CIO / CDTO уровня VP</title>
   <meta name="description" content="Владимир Пастушенко — CIO/CDTO уровня VP с 30-летним опытом управления ИТ и цифровой трансформации в федеральных холдингах. Антикризисное управление, архитектура TOGAF, импортозамещение, BI и AI/ML." />
+  
+  <!-- Schema.org structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Владимир Пастушенко",
+    "jobTitle": "CIO / CDTO",
+    "description": "Независимый CIO и Board-level Advisor с 30+-летним опытом работы в крупных федеральных холдингах и инфраструктурных компаниях",
+    "url": "https://TODOIT.RU",
+    "email": "VladPast@gmail.com",
+    "telephone": "+7-916-509-01-88",
+    "sameAs": [
+      "https://t.me/+79165090188",
+      "https://ru.linkedin.com/in/vladimir-pastushenko-656aa712"
+    ],
+    "knowsAbout": [
+      "IT Strategy",
+      "Digital Transformation", 
+      "Crisis Management",
+      "Enterprise Architecture",
+      "IT Governance",
+      "Risk Management",
+      "Cybersecurity",
+      "Data Analytics",
+      "AI/ML"
+    ],
+    "offers": {
+      "@type": "Offer",
+      "itemOffered": [
+        {
+          "@type": "ProfessionalService",
+          "name": "CIO / CDTO (VP level)",
+          "description": "ИТ-директор / директор по цифровому развитию в штате"
+        },
+        {
+          "@type": "ProfessionalService", 
+          "name": "Independent CIO / Board-level Advisor",
+          "description": "Независимый ИТ-директор и советник Совета директоров"
+        },
+        {
+          "@type": "ProfessionalService",
+          "name": "Interim CIO / Crisis Management", 
+          "description": "Временный CIO для кризисных и переходных ситуаций"
+        },
+        {
+          "@type": "ProfessionalService",
+          "name": "IT Due Diligence / Board-trigger",
+          "description": "Независимая оценка ИТ для сделок и стратегических решений"
+        },
+        {
+          "@type": "ProfessionalService",
+          "name": "IT Resilience & Risk Advisory",
+          "description": "Управляемость, устойчивость и риски критичных ИТ-систем"
+        }
+      ]
+    }
+  }
+  </script>
+  
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -33,31 +93,32 @@
 
   <main>
     <!-- Hero -->
-    <section id="hero" class="section hero reveal-on-scroll" aria-labelledby="hero-title">
+    <section id="hero" class="section hero reveal-on-scroll" aria-labelledby="hero-title" itemscope itemtype="https://schema.org/ProfessionalService">
       <div class="container hero-grid">
-        <div class="hero-shell">
+        <div class="hero-shell" itemprop="provider" itemscope itemtype="https://schema.org/Person">
           <figure class="hero-photo-wrapper">
             <img
               src="DSC_1670.jpg"
               alt="Владимир Пастушенко"
               class="hero-photo"
+              itemprop="image"
             />
           </figure>
           <div class="hero-text">
             <p class="hero-kicker">CIO / CDTO уровня VP</p>
-            <h1 id="hero-title" class="hero-title">
+            <h1 id="hero-title" class="hero-title" itemprop="name">
               Владимир Пастушенко
             </h1>
-            <p class="hero-subtitle">
+            <p class="hero-subtitle" itemprop="description">
               Независимый CIO и Board-level Advisor с 30+-летним опытом работы в крупных федеральных холдингах и инфраструктурных компаниях. Специализируюсь на восстановлении управляемости ИТ-ландшафта, работе с legacy, рисками (КИИ, ИБ, BCP) и поддержке собственников и Советов директоров в ситуациях, где цена ошибки высока, а оптимальных решений не существует. Работал с ИТ-функциями масштаба десятков тысяч пользователей, в том числе в кризисных и переходных периодах. Не занимаюсь ускорением ради трансформации — работаю с устойчивостью, последствиями и долгосрочной ответственностью.
             </p>
             <div class="hero-badges" aria-label="Ключевые показатели">
-              <div class="badge-large">30+ лет практического опыта в ИТ</div>
-              <div class="badge-large">130&nbsp;000+ сотрудников в управляемых холдингах</div>
-              <div class="badge-large">8+ отраслей: логистика, промышленность, дистрибуция, инфраструктура</div>
-              <div class="badge-large">350+ человек в ИТ-командах</div>
-              <div class="badge-large">ИТ-бюджеты &gt; 1,1 млрд ₽</div>
-              <div class="badge-large">SLA до 99,97% в операционных системах</div>
+              <span class="badge-large">30+ лет практического опыта в ИТ</span>
+              <span class="badge-large">130&nbsp;000+ сотрудников в управляемых холдингах</span>
+              <span class="badge-large">8+ отраслей: логистика, промышленность, дистрибуция, инфраструктура</span>
+              <span class="badge-large">350+ человек в ИТ-командах</span>
+              <span class="badge-large">ИТ-бюджеты &gt; 1,1 млрд ₽</span>
+              <span class="badge-large">SLA до 99,97% в операционных системах</span>
             </div>
             <div class="hero-actions">
               <a href="#contacts" class="btn btn-primary">Связаться</a>
@@ -67,7 +128,7 @@
             </div>
           </div>
         </div>
-        <div class="hero-focus">
+        <div class="hero-focus" itemprop="serviceType" itemscope itemtype="https://schema.org/Service">
           <div class="hero-card">
             <h2 class="hero-card-title">Фокус</h2>
             <ul class="hero-card-list">
@@ -83,54 +144,54 @@
     </section>
 
     <!-- Work formats -->
-    <section class="section section-alt reveal-on-scroll" aria-labelledby="formats-title">
+    <section id="formats" class="section section-alt reveal-on-scroll" aria-labelledby="formats-title" itemscope itemtype="https://schema.org/ProfessionalService">
       <div class="container">
         <h2 id="formats-title" class="section-title">Роли и форматы работы</h2>
-        <div class="formats-grid">
-          <article class="format-card">
-            <h3 class="format-title"><span class="role-en">CIO / CDTO (VP level)</span></h3>
+        <div class="formats-grid" itemprop="hasOfferCatalog" itemscope itemtype="https://schema.org/OfferCatalog">
+          <article class="format-card" itemprop="itemListElement" itemscope itemtype="https://schema.org/Offer">
+            <h3 class="format-title"><span class="role-en" itemprop="name">CIO / CDTO (VP level)</span></h3>
             <p class="format-subtitle">ИТ-директор / директор по цифровому развитию в штате</p>
-            <p class="format-text">
+            <p class="format-text" itemprop="description">
               Для компаний, которым нужен стратегический ИТ-лидер с полной ответственностью за управляемость, устойчивость и развитие ИТ как части бизнеса.
             </p>
             <p class="format-text">
               В этом формате я беру на себя сквозное управление ИТ-функцией: архитектура и legacy, команды и процессы, бюджет, риски, операционная устойчивость и развитие — с персональной ответственностью за результат и последствия принятых решений.
             </p>
           </article>
-          <article class="format-card">
-            <h3 class="format-title"><span class="role-en">Independent CIO / Board-level Advisor</span></h3>
+          <article class="format-card" itemprop="itemListElement" itemscope itemtype="https://schema.org/Offer">
+            <h3 class="format-title"><span class="role-en" itemprop="name">Independent CIO / Board-level Advisor</span></h3>
             <p class="format-subtitle">Независимый ИТ-директор и советник Совета директоров</p>
-            <p class="format-text">
+            <p class="format-text" itemprop="description">
               Для собственников и Советов директоров, которым необходимо быстро и честно понять реальное состояние ИТ, уровень рисков и степень управляемости цифровых систем.
             </p>
             <p class="format-text">
               Работаю напрямую с Board: помогаю отделить факты от иллюзий, выявить критичные точки риска и поддержать принятие решений в горизонте 12–36 месяцев, когда «идеальных вариантов» не существует.
             </p>
           </article>
-          <article class="format-card">
-            <h3 class="format-title"><span class="role-en">Interim CIO / Crisis Management</span></h3>
+          <article class="format-card" itemprop="itemListElement" itemscope itemtype="https://schema.org/Offer">
+            <h3 class="format-title"><span class="role-en" itemprop="name">Interim CIO / Crisis Management</span></h3>
             <p class="format-subtitle">Временный CIO для кризисных и переходных ситуаций</p>
-            <p class="format-text">
+            <p class="format-text" itemprop="description">
               Для компаний в кризисе, фазе резких изменений или смены управленческой модели, когда ИТ потеряло управляемость или стало источником бизнес-рисков.
             </p>
             <p class="format-text">
               Вхожу на ограниченный срок, стабилизирую ИТ-ландшафт, восстанавливаю контроль над критичными системами и командами, формирую основу для дальнейших решений — с передачей управления внутренней команде или новому CIO.
             </p>
           </article>
-          <article class="format-card">
-            <h3 class="format-title"><span class="role-en">IT Due Diligence / Board-trigger</span></h3>
+          <article class="format-card" itemprop="itemListElement" itemscope itemtype="https://schema.org/Offer">
+            <h3 class="format-title"><span class="role-en" itemprop="name">IT Due Diligence / Board-trigger</span></h3>
             <p class="format-subtitle">Независимая оценка ИТ для сделок и стратегических решений</p>
-            <p class="format-text">
+            <p class="format-text" itemprop="description">
               Для сделок M&A, смены собственников, крупных инвестиций или ситуаций, когда у Board есть ощущение, что ИТ может стать ограничением или скрытым риском.
             </p>
             <p class="format-text">
               Провожу независимую оценку состояния ИТ, архитектуры, команд, затрат и устойчивости, формирую понятную для Board картину рисков, последствий и возможных сценариев — без технического шума и формального консалтинга.
             </p>
           </article>
-          <article class="format-card">
-            <h3 class="format-title"><span class="role-en">IT Resilience & Risk Advisory</span></h3>
+          <article class="format-card" itemprop="itemListElement" itemscope itemtype="https://schema.org/Offer">
+            <h3 class="format-title"><span class="role-en" itemprop="name">IT Resilience & Risk Advisory</span></h3>
             <p class="format-subtitle">Управляемость, устойчивость и риски критичных ИТ-систем</p>
-            <p class="format-text">
+            <p class="format-text" itemprop="description">
               Для компаний, где отказ ИТ, инциденты ИБ или регуляторные риски имеют прямое влияние на бизнес-непрерывность.
             </p>
             <p class="format-text">
