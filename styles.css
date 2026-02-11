@@ -69,6 +69,17 @@ button {
   backdrop-filter: blur(10px);
 }
 
+/* Пошаговое затемнение блоков по вертикали */
+.section-light {
+  background: linear-gradient(135deg, rgba(20, 28, 50, 0.92), rgba(8, 12, 25, 0.92));
+  backdrop-filter: blur(10px);
+}
+
+.section-dark {
+  background: linear-gradient(135deg, rgba(10, 16, 35, 0.96), rgba(4, 7, 18, 0.96));
+  backdrop-filter: blur(10px);
+}
+
 .section-title {
   font-size: clamp(24px, 3vw, 32px);
   margin: 0 0 24px;
@@ -649,6 +660,14 @@ button {
   border-radius: var(--radius-lg);
   padding: 16px 16px 14px;
   border: 1px solid var(--border-subtle);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.7);
+  transition: transform var(--transition-med), box-shadow var(--transition-med), border-color var(--transition-med);
+}
+
+.stack-group:hover {
+  border-color: var(--accent-soft);
+  box-shadow: 0 18px 60px rgba(15, 23, 42, 0.9);
+  transform: translateY(-2px);
 }
 
 .stack-title {
