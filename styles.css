@@ -246,9 +246,9 @@ button {
 .hero-badges {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 10px;
+  gap: 12px;
   margin: 18px 0 22px;
-  max-width: 42rem;
+  width: 100%;
 }
 
 .badge {
@@ -264,18 +264,23 @@ button {
   display: flex;
   align-items: flex-start;
   gap: 10px;
-  border-radius: var(--radius-md);
-  padding: 10px 12px;
-  font-size: 12px;
-  font-weight: 500;
-  background: rgba(4, 7, 20, 0.96);
-  border: 1px solid var(--border-subtle);
-  border-left: 3px solid rgba(79, 140, 255, 0.55);
-  color: #e3eaff;
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 11px;
+  background: rgba(4, 7, 20, 0.7);
+  border: 1px solid rgba(148, 163, 255, 0.2);
+  color: #a8b8d8;
   text-align: left;
   line-height: 1.35;
   word-break: normal;
   overflow-wrap: anywhere;
+  transition: all var(--transition-med);
+}
+
+.badge-large:hover {
+  border-color: rgba(148, 163, 255, 0.5);
+  color: #e5e9ff;
+  background: rgba(14, 18, 40, 0.9);
 }
 
 @media (max-width: 720px) {
@@ -357,7 +362,7 @@ button {
   overflow: hidden;
   border: 2px solid rgba(148, 163, 255, 0.7);
   box-shadow: 0 18px 55px rgba(0, 0, 0, 0.9);
-  margin-top: -300px;
+  margin-top: -330px;
   z-index: 10;
 }
 
@@ -652,7 +657,20 @@ button {
 }
 
 .case-card li + li {
-  margin-top: 4px;
+  margin-top: 6px;
+}
+
+.cases-cta {
+  text-align: center;
+  margin-top: 40px;
+  padding: 20px 0;
+}
+
+.cases-cta p {
+  margin: 0 0 20px;
+  font-size: 16px;
+  color: var(--text-primary);
+  font-weight: 500;
 }
 
 .stack-groups {
