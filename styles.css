@@ -628,12 +628,20 @@ button {
 .case-title {
   font-size: 16px;
   margin: 0 0 6px;
+  color: var(--text-primary);
 }
 
 .case-meta {
   font-size: 13px;
   color: var(--accent);
-  margin: 0 0 10px;
+  margin: 0 0 8px;
+}
+
+.case-text {
+  font-size: 13px;
+  color: var(--accent);
+  margin: 0;
+  line-height: 1.4;
 }
 
 .case-card ul {
