@@ -4,6 +4,9 @@
  */
 
 // Заголовки для CORS и JSON
+header('Cache-Control: no-cache, no-store, must-revalidate');
+header('Pragma: no-cache');
+header('Expires: 0');
 header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: POST, OPTIONS');
@@ -50,7 +53,7 @@ $timestamp = isset($data['timestamp']) ? $data['timestamp'] : date('Y-m-d H:i:s'
 
 // Telegram настройки
 $token = '8411883305:AAF-NcMWZxqlT4qAHxd8YKiowJ2xy1bqr2k';
-$chatId = '8411883305';
+$chatId = '-1005207209023';
 
 // Формирование сообщения
 $message = "📋 *Новая заявка: Стратегическая диагностика ИТ*\n";
