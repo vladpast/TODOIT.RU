@@ -1,0 +1,11 @@
+__Аналитика:__ События отслеживаются:
+- checklist_started
+- question_answered
+- checklist_questions_completed
+- contact_submitted
+- checklist_completed
+- session_request_submitted
+
+-1008411883305
+Ключ Бота vladimirpastushenko_bot
+8411883305:AAF-NcMWZxqlT4qAHxd8YKiowJ2xy1bqr2k
