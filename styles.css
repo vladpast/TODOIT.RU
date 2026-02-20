@@ -1024,6 +1024,29 @@ button {
   }
 }
 
+@media (max-width: 600px) {
+  /* Все указанные секции в один столбец на узких экранах (iPhone) */
+  .formats-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  
+  .about-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  
+  .skills-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  
+  .cases-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  
+  .stack-groups {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
 @media (max-width: 480px) {
   .hero-actions {
     flex-direction: column;
