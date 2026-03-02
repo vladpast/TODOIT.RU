@@ -86,6 +86,13 @@ button {
   letter-spacing: 0.02em;
 }
 
+.page-subtitle {
+  color: var(--text-muted);
+  max-width: 42rem;
+  margin: 0 0 32px;
+  line-height: 1.6;
+}
+
 .site-header {
   position: sticky;
   top: 0;
@@ -170,6 +177,10 @@ button {
   color: #ffffff;
 }
 
+.nav-list a.is-active {
+  color: #ffffff;
+}
+
 .nav-list a.is-active::after {
   width: 100%;
 }
@@ -202,6 +213,12 @@ button {
 
 .hero {
   padding-top: 96px;
+}
+
+/* Hero подстраниц — визуально отделён от контента (не главная #hero) */
+section.section.hero:not(#hero) {
+  padding-top: 96px;
+  padding-bottom: 48px;
 }
 
 .hero-grid {
@@ -474,6 +491,89 @@ button {
   }
 }
 
+/* Block 3: For who */
+/* Блок «Для кого» — контент по ширине как Роли и форматы (980px), заголовок в общем контейнере */
+#for-who .audience-grid {
+  max-width: 980px;
+  margin: 0 auto;
+  gap: 32px;
+}
+
+/* Блок «Связанные разделы» на подстраницах — та же ширина, что верхние блоки */
+section[aria-labelledby="related-title"] .container {
+  max-width: 980px;
+}
+
+/* CTA «Записаться на консультацию» — кнопка по центру */
+section[aria-labelledby="cta-title"] .container {
+  text-align: center;
+}
+
+section[aria-labelledby="cta-title"] .footer-text {
+  margin-bottom: 20px;
+}
+
+section[aria-labelledby="cta-title"] .btn {
+  margin-top: 8px;
+}
+
+.audience-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 24px;
+}
+
+.audience-card {
+  display: flex;
+  flex-direction: column;
+  background: rgba(4, 7, 20, 0.96);
+  border-radius: var(--radius-lg);
+  padding: 22px 20px;
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.7);
+  transition: transform var(--transition-med), box-shadow var(--transition-med), border-color var(--transition-med);
+}
+
+.audience-card:hover {
+  border-color: var(--accent-soft);
+  box-shadow: 0 18px 60px rgba(15, 23, 42, 0.9);
+  transform: translateY(-2px);
+}
+
+.audience-card-title {
+  font-size: 18px;
+  margin: 0 0 4px;
+}
+
+.audience-card-subtitle {
+  font-size: 13px;
+  color: var(--accent);
+  margin: 0 0 14px;
+}
+
+.audience-list {
+  margin: 0 0 14px;
+  padding-left: 18px;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.audience-list li + li {
+  margin-top: 4px;
+}
+
+.audience-value {
+  margin: 0 0 18px;
+  font-size: 15px;
+  color: #c7d2ff;
+  font-style: italic;
+}
+
+.audience-card .btn {
+  margin-top: 0;
+  align-self: center;
+}
+
 .section-grid {
   display: flex;
   flex-direction: column;
@@ -490,8 +590,9 @@ button {
 }
 
 .about-callout {
-  margin-top: 18px;
-  padding: 14px 16px;
+  max-width: 980px;
+  margin: 18px auto 0;
+  padding: 18px 20px;
   border-radius: 16px;
   border: 1px dashed rgba(148, 163, 255, 0.5);
   background: radial-gradient(circle at 0 0, rgba(79, 140, 255, 0.12), transparent 60%),
@@ -509,7 +610,8 @@ button {
 .about-callout-text {
   margin: 0 0 4px;
   font-size: 14px;
-  color: var(--text-muted);
+  color: #b8c4e0;
+  line-height: 1.55;
 }
 
 .about-grid {
@@ -560,16 +662,42 @@ button {
 .format-card {
   background: rgba(4, 7, 20, 0.96);
   border-radius: var(--radius-lg);
-  padding: 18px 18px 16px;
+  padding: 22px 20px;
   border: 1px solid var(--border-subtle);
   box-shadow: 0 14px 40px rgba(0, 0, 0, 0.7);
   transition: transform var(--transition-med), box-shadow var(--transition-med), border-color var(--transition-med);
+}
+
+.format-card-accent {
+  border-left: 3px solid var(--accent);
 }
 
 .format-card:hover {
   border-color: var(--accent-soft);
   box-shadow: 0 18px 60px rgba(15, 23, 42, 0.9);
   transform: translateY(-2px);
+}
+
+.ask-ai-block + .ask-ai-block {
+  margin-top: 28px;
+}
+
+section[aria-labelledby="questions-title"] .container {
+  max-width: 980px;
+}
+
+.ask-ai-answer-ai {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 10px 12px;
+  margin: 8px 0;
+  border-radius: var(--radius-md);
+}
+
+.ask-ai-answer-expert {
+  border-left: 3px solid var(--accent);
+  padding-left: 12px;
+  margin: 8px 0;
+  color: #e5e9ff;
 }
 
 .format-title {
@@ -1039,6 +1167,14 @@ button {
 
   .hero {
     padding-top: 72px;
+  }
+
+  section.section.hero:not(#hero) {
+    padding-bottom: 36px;
+  }
+
+  .page-subtitle {
+    margin-bottom: 24px;
   }
 
   .hero-shell {
