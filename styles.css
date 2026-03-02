@@ -376,25 +376,36 @@ button {
 .hero-photo-wrapper {
   position: relative;
   margin: 0;
-  max-width: 260px;
+  max-width: 240px;
   width: 100%;
-  height: 260px;
+  height: 320px;
+  aspect-ratio: 3 / 4;
   display: flex;
-  justify-content: flex-start;
-  flex: 0 0 260px;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 240px;
   border-radius: 24px;
   overflow: hidden;
   border: 2px solid rgba(148, 163, 255, 0.7);
   box-shadow: 0 18px 55px rgba(0, 0, 0, 0.9);
-  margin-top: -330px;
+  margin-top: -280px;
   z-index: 10;
+}
+
+@media (min-width: 1024px) {
+  .hero-photo-wrapper {
+    max-width: 192px;
+    height: 256px;
+    flex: 0 0 192px;
+  }
 }
 
 .hero-photo {
   width: 100%;
-  height: 100%;
+  height: calc(100% + 20px);
   object-fit: cover;
   object-position: center 10%;
+  margin-top: -20px;
 }
 
 .hero-focus {
@@ -1009,6 +1020,15 @@ button {
   .hero-shell {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .hero-photo-wrapper {
+    margin-top: 0;
+    margin-bottom: 20px;
+    max-width: 100%;
+    width: 100%;
+    height: 400px;
+    flex: 0 0 400px;
   }
 
   .section {
