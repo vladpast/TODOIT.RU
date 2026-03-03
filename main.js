@@ -112,5 +112,43 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Начальное состояние
   updateActiveNav();
+
+  // Блок «Связаться для стратегической сессии» (раздел Ситуации): выпадающий список и аналитика
+  const sessionContact = document.getElementById("session-contact-block");
+  if (sessionContact) {
+    const toggleBtn = sessionContact.querySelector(".contact-btn-toggle");
+    const options = document.getElementById("session-contact-options");
+    if (toggleBtn && options) {
+      toggleBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const isOpen = sessionContact.classList.toggle("open");
+        options.classList.toggle("show", isOpen);
+        toggleBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      });
+      document.addEventListener("click", (e) => {
+        if (!sessionContact.contains(e.target)) {
+          sessionContact.classList.remove("open");
+          options.classList.remove("show");
+          toggleBtn.setAttribute("aria-expanded", "false");
+        }
+      });
+      options.querySelectorAll(".contact-option").forEach((link) => {
+        link.addEventListener("click", () => {
+          sessionContact.classList.remove("open");
+          options.classList.remove("show");
+          toggleBtn.setAttribute("aria-expanded", "false");
+        });
+      });
+    }
+    sessionContact.querySelectorAll("[data-analytics]").forEach((el) => {
+      el.addEventListener("click", () => {
+        const goal = el.getAttribute("data-analytics");
+        if (typeof ym !== "undefined") {
+          ym(106909561, "reachGoal", goal);
+        }
+      });
+    });
+  }
 });
 
