@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const revealElements = document.querySelectorAll(
-    ".case-card, .timeline-item, .reveal-on-scroll"
+    ".case-card, .risk-card, .timeline-item, .reveal-on-scroll"
   );
 
   const revealObserver = new IntersectionObserver((entries) => {
@@ -142,6 +142,44 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
     sessionContact.querySelectorAll("[data-analytics]").forEach((el) => {
+      el.addEventListener("click", () => {
+        const goal = el.getAttribute("data-analytics");
+        if (typeof ym !== "undefined") {
+          ym(106909561, "reachGoal", goal);
+        }
+      });
+    });
+  }
+
+  // Блок «Обсудить риски» (раздел Риски): тот же выпадающий список и аналитика
+  const risksContact = document.getElementById("risks-contact-block");
+  if (risksContact) {
+    const toggleBtn = risksContact.querySelector(".contact-btn-toggle");
+    const options = document.getElementById("risks-contact-options");
+    if (toggleBtn && options) {
+      toggleBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const isOpen = risksContact.classList.toggle("open");
+        options.classList.toggle("show", isOpen);
+        toggleBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      });
+      document.addEventListener("click", (e) => {
+        if (!risksContact.contains(e.target)) {
+          risksContact.classList.remove("open");
+          options.classList.remove("show");
+          toggleBtn.setAttribute("aria-expanded", "false");
+        }
+      });
+      options.querySelectorAll(".contact-option").forEach((link) => {
+        link.addEventListener("click", () => {
+          risksContact.classList.remove("open");
+          options.classList.remove("show");
+          toggleBtn.setAttribute("aria-expanded", "false");
+        });
+      });
+    }
+    risksContact.querySelectorAll("[data-analytics]").forEach((el) => {
       el.addEventListener("click", () => {
         const goal = el.getAttribute("data-analytics");
         if (typeof ym !== "undefined") {
