@@ -337,6 +337,41 @@ section.section.hero:not(#hero) {
   flex-wrap: wrap;
   gap: 12px;
   justify-content: center;
+  align-items: stretch;
+}
+
+/* В герое блок контактов и кнопка «Скачать резюме» в одну линию; контакты — доминирующие */
+.hero-actions .hero-contact-selector {
+  width: auto;
+  max-width: none;
+  margin: 0;
+}
+
+.hero-actions .contact-btn-wrap {
+  width: auto;
+  min-width: 200px;
+}
+
+.btn-hero-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 20px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+  background: rgba(7, 11, 31, 0.9);
+  color: var(--text-muted);
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: border-color var(--transition-med), color var(--transition-med), background var(--transition-med);
+}
+
+.btn-hero-secondary:hover,
+.btn-hero-secondary:focus-visible {
+  border-color: var(--accent-soft);
+  color: #e5e9ff;
+  background: rgba(14, 18, 40, 0.98);
 }
 
 .btn {
@@ -409,7 +444,7 @@ section.section.hero:not(#hero) {
   overflow: hidden;
   border: 2px solid rgba(148, 163, 255, 0.7);
   box-shadow: 0 18px 55px rgba(0, 0, 0, 0.9);
-  margin-top: -280px;
+  margin-top: -240px;
   z-index: 10;
 }
 
@@ -893,6 +928,29 @@ section[aria-labelledby="questions-title"] .container {
   font-size: 16px;
   color: var(--text-main);
   font-weight: 500;
+}
+
+/* В Ситуациях и Рисках кнопка по ширине подписи, в одну строку; выпадающее меню — по ширине кнопки */
+.cases-cta .contact-selector {
+  width: fit-content;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cases-cta .contact-btn-wrap {
+  width: auto;
+}
+
+.cases-cta .contact-btn.primary {
+  flex: 0 1 auto;
+  white-space: nowrap;
+}
+
+.cases-cta .contact-options {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 /* Блок «Связаться для стратегической сессии» (раздел Ситуации) */
@@ -1466,6 +1524,14 @@ section[aria-labelledby="questions-title"] .container {
   .hero-actions {
     flex-direction: column;
     align-items: stretch;
+  }
+
+  .hero-actions .hero-contact-selector {
+    width: 100%;
+  }
+
+  .hero-actions .contact-btn-wrap {
+    width: 100%;
   }
 }
 

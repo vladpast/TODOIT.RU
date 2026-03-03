@@ -113,6 +113,44 @@ document.addEventListener("DOMContentLoaded", () => {
   // Начальное состояние
   updateActiveNav();
 
+  // Блок «Связаться» в герое: выпадающий список и аналитика
+  const heroContact = document.getElementById("hero-contact-block");
+  if (heroContact) {
+    const toggleBtn = heroContact.querySelector(".contact-btn-toggle");
+    const options = document.getElementById("hero-contact-options");
+    if (toggleBtn && options) {
+      toggleBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const isOpen = heroContact.classList.toggle("open");
+        options.classList.toggle("show", isOpen);
+        toggleBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      });
+      document.addEventListener("click", (e) => {
+        if (!heroContact.contains(e.target)) {
+          heroContact.classList.remove("open");
+          options.classList.remove("show");
+          toggleBtn.setAttribute("aria-expanded", "false");
+        }
+      });
+      options.querySelectorAll(".contact-option").forEach((link) => {
+        link.addEventListener("click", () => {
+          heroContact.classList.remove("open");
+          options.classList.remove("show");
+          toggleBtn.setAttribute("aria-expanded", "false");
+        });
+      });
+    }
+    heroContact.querySelectorAll("[data-analytics]").forEach((el) => {
+      el.addEventListener("click", () => {
+        const goal = el.getAttribute("data-analytics");
+        if (typeof ym !== "undefined") {
+          ym(106909561, "reachGoal", goal);
+        }
+      });
+    });
+  }
+
   // Блок «Связаться для стратегической сессии» (раздел Ситуации): выпадающий список и аналитика
   const sessionContact = document.getElementById("session-contact-block");
   if (sessionContact) {
@@ -142,6 +180,44 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
     sessionContact.querySelectorAll("[data-analytics]").forEach((el) => {
+      el.addEventListener("click", () => {
+        const goal = el.getAttribute("data-analytics");
+        if (typeof ym !== "undefined") {
+          ym(106909561, "reachGoal", goal);
+        }
+      });
+    });
+  }
+
+  // Блок «Связаться» (раздел Роли и форматы работы): выпадающий список и аналитика
+  const formatsContact = document.getElementById("formats-contact-block");
+  if (formatsContact) {
+    const toggleBtn = formatsContact.querySelector(".contact-btn-toggle");
+    const options = document.getElementById("formats-contact-options");
+    if (toggleBtn && options) {
+      toggleBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const isOpen = formatsContact.classList.toggle("open");
+        options.classList.toggle("show", isOpen);
+        toggleBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      });
+      document.addEventListener("click", (e) => {
+        if (!formatsContact.contains(e.target)) {
+          formatsContact.classList.remove("open");
+          options.classList.remove("show");
+          toggleBtn.setAttribute("aria-expanded", "false");
+        }
+      });
+      options.querySelectorAll(".contact-option").forEach((link) => {
+        link.addEventListener("click", () => {
+          formatsContact.classList.remove("open");
+          options.classList.remove("show");
+          toggleBtn.setAttribute("aria-expanded", "false");
+        });
+      });
+    }
+    formatsContact.querySelectorAll("[data-analytics]").forEach((el) => {
       el.addEventListener("click", () => {
         const goal = el.getAttribute("data-analytics");
         if (typeof ym !== "undefined") {
