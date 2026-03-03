@@ -113,6 +113,44 @@ document.addEventListener("DOMContentLoaded", () => {
   // Начальное состояние
   updateActiveNav();
 
+  // Блок «Стратегическая сессия» (главный CTA): выпадающий список и аналитика
+  const sessionMainContact = document.getElementById("session-main-contact-block");
+  if (sessionMainContact) {
+    const toggleBtn = sessionMainContact.querySelector(".contact-btn-toggle");
+    const options = document.getElementById("session-main-contact-options");
+    if (toggleBtn && options) {
+      toggleBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const isOpen = sessionMainContact.classList.toggle("open");
+        options.classList.toggle("show", isOpen);
+        toggleBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      });
+      document.addEventListener("click", (e) => {
+        if (!sessionMainContact.contains(e.target)) {
+          sessionMainContact.classList.remove("open");
+          options.classList.remove("show");
+          toggleBtn.setAttribute("aria-expanded", "false");
+        }
+      });
+      options.querySelectorAll(".contact-option").forEach((link) => {
+        link.addEventListener("click", () => {
+          sessionMainContact.classList.remove("open");
+          options.classList.remove("show");
+          toggleBtn.setAttribute("aria-expanded", "false");
+        });
+      });
+    }
+    sessionMainContact.querySelectorAll("[data-analytics]").forEach((el) => {
+      el.addEventListener("click", () => {
+        const goal = el.getAttribute("data-analytics");
+        if (typeof ym !== "undefined") {
+          ym(106909561, "reachGoal", goal);
+        }
+      });
+    });
+  }
+
   // Блок «Связаться» в герое: выпадающий список и аналитика
   const heroContact = document.getElementById("hero-contact-block");
   if (heroContact) {
