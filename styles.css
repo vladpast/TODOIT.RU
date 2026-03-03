@@ -491,14 +491,6 @@ section.section.hero:not(#hero) {
   }
 }
 
-/* Block 3: For who */
-/* Блок «Для кого» — контент по ширине как Роли и форматы (980px), заголовок в общем контейнере */
-#for-who .audience-grid {
-  max-width: 980px;
-  margin: 0 auto;
-  gap: 32px;
-}
-
 /* Блок «Связанные разделы» на подстраницах — та же ширина, что верхние блоки */
 section[aria-labelledby="related-title"] .container {
   max-width: 980px;
