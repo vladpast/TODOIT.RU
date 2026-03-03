@@ -634,6 +634,8 @@ section.section.hero:not(#hero) {
   margin: 0 auto;
   text-align: center;
   padding: 24px 0 0;
+  position: relative;
+  z-index: 15;
 }
 
 .hero-diagnostic-cta .contact-selector {
@@ -1102,6 +1104,7 @@ section[aria-labelledby="questions-title"] .container {
 /* Блок «Связаться для стратегической сессии» (раздел Ситуации) */
 .contact-selector {
   position: relative;
+  z-index: 15;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1125,6 +1128,8 @@ section[aria-labelledby="questions-title"] .container {
   gap: 10px;
   flex: 1;
   min-width: 0;
+  cursor: pointer;
+  pointer-events: auto;
   background: linear-gradient(135deg, var(--accent), var(--accent-strong));
   color: #ffffff;
   padding: 16px 20px;
@@ -1146,6 +1151,8 @@ section[aria-labelledby="questions-title"] .container {
   align-items: center;
   justify-content: center;
   padding: 0 14px;
+  cursor: pointer;
+  pointer-events: auto;
   background: rgba(79, 140, 255, 0.25);
   border: none;
   border-left: 1px solid rgba(255, 255, 255, 0.15);
