@@ -113,7 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Начальное состояние
   updateActiveNav();
 
-  // Блок «Стратегическая сессия» (главный CTA): выпадающий список и аналитика
+  // Блок «Диагностическая беседа» (главный CTA): выпадающий список и аналитика
   const sessionMainContact = document.getElementById("session-main-contact-block");
   if (sessionMainContact) {
     const toggleBtn = sessionMainContact.querySelector(".contact-btn-toggle");
@@ -189,7 +189,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Блок «Связаться для стратегической сессии» (раздел Ситуации): выпадающий список и аналитика
+  // Блок «Связаться» (раздел Ситуации): выпадающий список и аналитика
   const sessionContact = document.getElementById("session-contact-block");
   if (sessionContact) {
     const toggleBtn = sessionContact.querySelector(".contact-btn-toggle");

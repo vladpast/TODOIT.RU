@@ -546,6 +546,30 @@ section.section.hero:not(#hero) {
   margin-top: 2px;
 }
 
+.hero-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 0.5em;
+  margin: 0 0 0 2em;
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.hero-card-tags-label {
+  margin-right: 0.35em;
+  color: var(--text-main);
+}
+
+.hero-card-tags span:not(:last-child)::after {
+  content: " · ";
+  margin-left: 0.5em;
+  color: var(--accent);
+  opacity: 0.85;
+  font-weight: 600;
+}
+
 .hero-card {
   position: relative;
   background: rgba(4, 7, 20, 0.96);
@@ -600,6 +624,10 @@ section.section.hero:not(#hero) {
   font-size: 14px;
   color: var(--text-muted);
   line-height: 1.55;
+}
+
+.hero-card-indent {
+  margin-left: 2em;
 }
 
 .hero-card-list {
