@@ -1165,6 +1165,7 @@ section[aria-labelledby="questions-title"] .container {
   font-weight: 600;
   font-size: 16px;
   line-height: 1.4;
+  border-radius: var(--radius-md);
   transition: background var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
 }
 
@@ -1322,10 +1323,10 @@ section[aria-labelledby="questions-title"] .container {
 
 .contact-note {
   margin: 0;
-  padding-top: 56px;
+  padding: 12px 0 0;
   font-size: 12px;
   color: #6b7280;
-  line-height: 1.5;
+  line-height: 1.4;
   display: flex;
   flex-direction: column;
   gap: 2px;

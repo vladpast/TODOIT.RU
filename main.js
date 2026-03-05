@@ -209,25 +209,36 @@ document.addEventListener("DOMContentLoaded", () => {
     return !/Android|iPhone|iPad/i.test(navigator.userAgent);
   }
 
+  function isMobile() {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  }
+
+  function isMacDesktop() {
+    const ua = navigator.userAgent;
+    return /Mac/i.test(ua) && !/iPhone|iPad|iPod/i.test(ua);
+  }
+
   function handleEmail(address, subject, body) {
-    if (isDesktop()) {
+    const openMailFirst = isMobile() || isMacDesktop();
+    if (openMailFirst) {
+      window.location.href = `mailto:${address}?subject=${encodeURIComponent(subject || "")}&body=${encodeURIComponent(body || "")}`;
+    } else {
       copyToClipboard(address, address);
       setTimeout(() => {
         showToast("Email скопирован. Откройте ваш почтовый клиент.");
       }, 1500);
-    } else {
-      window.location.href = `mailto:${address}?subject=${encodeURIComponent(subject || "")}&body=${encodeURIComponent(body || "")}`;
     }
   }
 
   function handlePhone(number, displayNumber) {
-    if (isDesktop()) {
+    const openCallFirst = isMobile() || isMacDesktop();
+    if (openCallFirst) {
+      window.location.href = `tel:${number}`;
+    } else {
       copyToClipboard(number, displayNumber || number);
       setTimeout(() => {
         showToast("Номер скопирован. Наберите в вашем приложении.");
       }, 1500);
-    } else {
-      window.location.href = `tel:${number}`;
     }
   }
 
