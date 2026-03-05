@@ -267,10 +267,11 @@ document.addEventListener("DOMContentLoaded", () => {
       e.preventDefault();
       e.stopPropagation();
       const isExpanded = toggleBtn.getAttribute("aria-expanded") === "true";
-      toggleBtn.setAttribute("aria-expanded", !isExpanded);
-      options.classList.toggle("show");
-      selector.classList.toggle("open");
-      if (!isExpanded && typeof ym !== "undefined") {
+      const willOpen = !isExpanded;
+      toggleBtn.setAttribute("aria-expanded", willOpen ? "true" : "false");
+      options.classList.toggle("show", willOpen);
+      selector.classList.toggle("open", willOpen);
+      if (willOpen && typeof ym !== "undefined") {
         ym(106909561, "reachGoal", toggleBtn.dataset.analytics || "cta_menu_open");
       }
     });
