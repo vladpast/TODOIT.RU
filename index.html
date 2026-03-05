@@ -79,17 +79,18 @@
   }
   </script>
   
-  <!-- Яндекс Метрика -->
+  <!-- Яндекс Метрика (инициализация в try/catch, чтобы не было ошибок в консоли) -->
   <script type="text/javascript">
     (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
     m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}
     k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
     (window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=106909561','ym');
-    ym(106909561, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+    try { if (typeof ym === 'function') { ym(106909561, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true}); } } catch (err) { }
   </script>
   <noscript><div><img src="https://mc.yandex.ru/watch/106909561" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
   
-  <link rel="stylesheet" href="styles.css?v=20260209" />
+  <link rel="stylesheet" href="styles.css?v=20260210" />
+  <link rel="preload" as="image" href="DSC_1670_smol.jpg" />
 </head>
 <body>
   <header class="site-header">
@@ -126,6 +127,8 @@
                 src="DSC_1670_smol.jpg"
                 alt="Владимир Пастушенко"
                 class="hero-photo"
+                width="500"
+                height="752"
                 itemprop="image"
               />
             </figure>
@@ -227,7 +230,7 @@
             </div>
             <p class="contact-note">
               <span class="note-main">↓ Выберите удобный способ связи</span>
-              <span class="note-sub">Ответ в течение 24 часов. Конфиденциально.</span>
+              <span class="note-sub">Ответ в течение 24 часов. Конфиденциально. NDA по запросу.</span>
             </p>
           </div>
         </div>
@@ -346,7 +349,7 @@
             </div>
             <p class="contact-note">
               <span class="note-main">↓ Выберите удобный способ связи</span>
-              <span class="note-sub">Ответ в течение 24 часов. Конфиденциально.</span>
+              <span class="note-sub">Ответ в течение 24 часов. Конфиденциально. NDA по запросу.</span>
             </p>
           </div>
         </div>
@@ -478,7 +481,7 @@
             </div>
             <p class="contact-note">
               <span class="note-main">↓ Выберите удобный способ связи</span>
-              <span class="note-sub">Ответ в течение 24 часов. Конфиденциально.</span>
+              <span class="note-sub">Ответ в течение 24 часов. Конфиденциально. NDA по запросу.</span>
             </p>
           </div>
         </div>
@@ -576,7 +579,7 @@
             </div>
             <p class="contact-note">
               <span class="note-main">↓ Выберите удобный способ связи</span>
-              <span class="note-sub">Ответ в течение 24 часов. Конфиденциально.</span>
+              <span class="note-sub">Ответ в течение 24 часов. Конфиденциально. NDA по запросу.</span>
             </p>
           </div>
         </div>
@@ -1012,6 +1015,7 @@
     </div>
     <div class="container footer-copyright">
       <p class="copyright-text">© 2026 Vladimir Pastushenko. All rights reserved.</p>
+      <p class="footer-privacy">На сайте используется Яндекс.Метрика (cookie и данные об использовании сайта для аналитики).</p>
     </div>
     <button class="to-top" type="button" aria-label="Вернуться наверх">
       ↑

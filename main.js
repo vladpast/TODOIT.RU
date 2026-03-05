@@ -242,16 +242,17 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  if (!document.getElementById("contact-toast")) {
-    const toast = document.createElement("div");
-    toast.id = "contact-toast";
-    toast.className = "contact-toast";
-    toast.setAttribute("aria-hidden", "true");
-    toast.innerHTML = '<span class="toast-icon">✓</span><span class="toast-text">Скопировано в буфер обмена</span>';
-    document.body.appendChild(toast);
-  }
+  function initContactSelectors() {
+    if (!document.getElementById("contact-toast")) {
+      const toast = document.createElement("div");
+      toast.id = "contact-toast";
+      toast.className = "contact-toast";
+      toast.setAttribute("aria-hidden", "true");
+      toast.innerHTML = '<span class="toast-icon">✓</span><span class="toast-text">Скопировано в буфер обмена</span>';
+      document.body.appendChild(toast);
+    }
 
-  document.querySelectorAll(".contact-selector").forEach((selector) => {
+    document.querySelectorAll(".contact-selector").forEach((selector) => {
     const toggleBtn = selector.querySelector(".contact-btn-toggle-main");
     const options = selector.querySelector(".contact-options");
     if (!toggleBtn || !options) return;
@@ -326,5 +327,12 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
+  }
+
+  if (typeof requestIdleCallback !== "undefined") {
+    requestIdleCallback(() => initContactSelectors(), { timeout: 2000 });
+  } else {
+    setTimeout(initContactSelectors, 1);
+  }
 });
 

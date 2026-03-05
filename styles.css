@@ -1632,6 +1632,14 @@ section[aria-labelledby="questions-title"] .container {
   color: rgba(163, 173, 199, 0.9);
 }
 
+.footer-privacy {
+  font-size: 11px;
+  color: rgba(163, 173, 199, 0.55);
+  text-align: center;
+  margin-top: 8px;
+  margin-bottom: 0;
+}
+
 .footer-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.4fr);
