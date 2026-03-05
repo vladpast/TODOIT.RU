@@ -1193,8 +1193,13 @@ section[aria-labelledby="questions-title"] .container {
   background: rgba(79, 140, 255, 0.4);
 }
 
-.contact-selector.open .contact-btn-toggle .btn-toggle {
+.contact-selector.open .contact-btn-toggle .btn-toggle,
+.contact-selector.open .btn-toggle {
   transform: rotate(180deg);
+}
+
+.contact-selector.open .contact-btn-toggle-main {
+  background: #0077b5;
 }
 
 .btn-icon {
@@ -1224,10 +1229,21 @@ section[aria-labelledby="questions-title"] .container {
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
   overflow: hidden;
   z-index: 10;
+  transform-origin: top center;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.contact-options:not(.show) {
+  opacity: 0;
+  transform: scaleY(0.95);
+  pointer-events: none;
 }
 
 .contact-options.show {
   display: flex;
+  opacity: 1;
+  transform: scaleY(1);
+  pointer-events: auto;
   animation: contactSlideDown 0.2s ease;
 }
 
@@ -1271,6 +1287,39 @@ section[aria-labelledby="questions-title"] .container {
   flex: 1;
 }
 
+.option-hint {
+  display: block;
+  font-size: 0.7em;
+  color: #9ca3af;
+  margin-left: 24px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.contact-option.copied {
+  background: #f0fdf4;
+}
+
+.contact-option.copied .option-icon {
+  position: relative;
+}
+
+.contact-option.copied .option-icon::after {
+  content: "✓";
+  position: absolute;
+  right: -4px;
+  top: -4px;
+  background: #10b981;
+  color: white;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .contact-note {
   margin: 0;
   padding-top: 56px;
@@ -1292,6 +1341,59 @@ section[aria-labelledby="questions-title"] .container {
 .contact-note .note-sub {
   font-size: 11px;
   color: #5c6478;
+}
+
+.contact-toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: #050713;
+  color: #ffffff;
+  padding: 12px 24px;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.contact-toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.contact-toast .toast-icon {
+  color: #10b981;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .option-hint {
+    font-size: 0.65em;
+  }
+
+  .contact-toast {
+    bottom: 16px;
+    padding: 10px 20px;
+    font-size: 13px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .contact-toast {
+    background: #ffffff;
+    color: #050713;
+  }
+
+  .contact-option.copied {
+    background: #1a2e1a;
+  }
 }
 
 @media (max-width: 480px) {

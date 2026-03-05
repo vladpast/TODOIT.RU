@@ -200,53 +200,37 @@
           </div>
         </div>
         <div class="hero-diagnostic-cta">
-          <div class="contact-selector" id="session-main-contact-block">
-            <div class="contact-btn-wrap">
-              <a href="https://t.me/VladimirPastushenko?text=Здравствуйте%2C%20Владимир.%20Пишу%20по%20поводу%20диагностического%20разговора.%0A%0AКомпания%3A%20%5Bназвание%5D%0AРоль%3A%20%5Bдолжность%5D%0AКратко%20о%20ситуации%3A%20"
-                 class="contact-btn primary"
-                 target="_blank"
-                 rel="noopener"
-                 data-analytics="cta_telegram_session">
-                <span class="btn-icon">🤝</span>
-                <span class="btn-text">Запросить диагностическую беседу</span>
-              </a>
-              <button type="button" class="contact-btn-toggle" aria-label="Другие способы связи" aria-expanded="false">
-                <span class="btn-toggle">▾</span>
-              </button>
-            </div>
-            <div class="contact-options" id="session-main-contact-options">
-              <a href="https://t.me/VladimirPastushenko?text=Здравствуйте%2C%20Владимир.%20Пишу%20по%20поводу%20диагностического%20разговора.%0A%0AКомпания%3A%20%5Bназвание%5D%0AРоль%3A%20%5Bдолжность%5D%0AКратко%20о%20ситуации%3A%20"
-                 class="contact-option"
-                 target="_blank"
-                 rel="noopener"
-                 data-analytics="cta_telegram_dropdown_session">
+          <div class="contact-selector" id="session-main-contact-block" data-contact-data='{"telegram":{"username":"VladimirPastushenko","text":"Здравствуйте, Владимир. Пишу по поводу диагностической беседы.\n\nКомпания: [название]\nРоль: [должность]\nКратко о ситуации: "},"whatsapp":{"phone":"79165090188","text":"Здравствуйте, Владимир. Пишу по поводу диагностической беседы.\n\nКомпания: [название]\nРоль: [должность]\nКратко о ситуации: "},"email":{"address":"VladPast@gmail.com","subject":"Запрос на диагностическую беседу","body":"Здравствуйте, Владимир.\n\nПишу по поводу диагностической беседы.\n\nКомпания: [название]\nРоль: [должность]\nКратко о ситуации: "},"phone":{"number":"+79165090188","display":"+7 (916) 509-01-88"}}'>
+            <button type="button" class="contact-btn primary contact-btn-toggle-main" aria-label="Выберите способ связи" aria-expanded="false" data-analytics="cta_menu_open_session">
+              <span class="btn-icon">🤝</span>
+              <span class="btn-text">Запросить диагностическую беседу</span>
+              <span class="btn-toggle">▾</span>
+            </button>
+            <div class="contact-options">
+              <a href="#" class="contact-option" data-channel="telegram" data-analytics="cta_telegram_session">
                 <span class="option-icon">✈️</span>
                 <span class="option-text">Telegram</span>
+                <span class="option-hint">(приложение или веб)</span>
               </a>
-              <a href="https://wa.me/79165090188?text=Здравствуйте%2C%20Владимир.%20Пишу%20по%20поводу%20диагностического%20разговора.%0A%0AКомпания%3A%20%5Bназвание%5D%0AРоль%3A%20%5Bдолжность%5D%0AКратко%20о%20ситуации%3A%20"
-                 class="contact-option"
-                 target="_blank"
-                 rel="noopener"
-                 data-analytics="cta_whatsapp_session">
+              <a href="#" class="contact-option" data-channel="whatsapp" data-analytics="cta_whatsapp_session">
                 <span class="option-icon">💬</span>
                 <span class="option-text">WhatsApp</span>
+                <span class="option-hint">(приложение или веб)</span>
               </a>
-              <a href="mailto:VladPast@gmail.com?subject=Запрос%20на%20диагностический%20разговор&body=Здравствуйте%2C%20Владимир.%0A%0AПишу%20по%20поводу%20диагностического%20разговора.%0A%0AКомпания%3A%20%5Bназвание%5D%0AРоль%3A%20%5Bдолжность%5D%0AКратко%20о%20ситуации%3A%20"
-                 class="contact-option"
-                 data-analytics="cta_email_session">
+              <a href="#" class="contact-option" data-channel="email" data-analytics="cta_email_session">
                 <span class="option-icon">✉️</span>
                 <span class="option-text">Email</span>
+                <span class="option-hint">(копировать или открыть)</span>
               </a>
-              <a href="tel:+79165090188"
-                 class="contact-option"
-                 data-analytics="cta_phone_session">
+              <a href="#" class="contact-option" data-channel="phone" data-analytics="cta_phone_session">
                 <span class="option-icon">📞</span>
                 <span class="option-text">Позвонить</span>
+                <span class="option-hint">(копировать или набрать)</span>
               </a>
             </div>
             <p class="contact-note">
-              <span class="note-main">Ответ в течение 24 часов в любом канале</span>
-              <span class="note-sub">Конфиденциально. Можно кратко описать ситуацию в первом сообщении.</span>
+              <span class="note-main">↓ Выберите удобный способ связи</span>
+              <span class="note-sub">Ответ в течение 24 часов. Конфиденциально.</span>
             </p>
           </div>
         </div>
@@ -335,53 +319,37 @@
 
         <div class="cases-cta">
           <p>Если вы узнали свою ситуацию — обсудим её до того, как она станет кризисом.</p>
-          <div class="contact-selector" id="session-contact-block">
-            <div class="contact-btn-wrap">
-              <a href="https://t.me/VladimirPastushenko?text=Здравствуйте%2C%20Владимир.%20Пишу%20по%20поводу%20диагностической%20беседы.%0A%0AКомпания%3A%20%5Bназвание%5D%0AРоль%3A%20%5Bдолжность%5D%0AКратко%20о%20ситуации%3A%20"
-                 class="contact-btn primary"
-                 target="_blank"
-                 rel="noopener"
-                 data-analytics="cta_telegram">
-                <span class="btn-icon">🤝</span>
-                <span class="btn-text">Запросить диагностическую беседу</span>
-              </a>
-              <button type="button" class="contact-btn-toggle" aria-label="Другие способы связи" aria-expanded="false">
-                <span class="btn-toggle">▾</span>
-              </button>
-            </div>
-            <div class="contact-options" id="session-contact-options">
-              <a href="https://t.me/VladimirPastushenko?text=Здравствуйте%2C%20Владимир.%20Пишу%20по%20поводу%20диагностической%20беседы.%0A%0AКомпания%3A%20%5Bназвание%5D%0AРоль%3A%20%5Bдолжность%5D%0AКратко%20о%20ситуации%3A%20"
-                 class="contact-option"
-                 target="_blank"
-                 rel="noopener"
-                 data-analytics="cta_telegram_dropdown">
+          <div class="contact-selector" id="session-contact-block" data-contact-data='{"telegram":{"username":"VladimirPastushenko","text":"Здравствуйте, Владимир. Пишу по поводу диагностической беседы.\n\nКомпания: [название]\nРоль: [должность]\nКратко о ситуации: "},"whatsapp":{"phone":"79165090188","text":"Здравствуйте, Владимир. Пишу по поводу диагностической беседы.\n\nКомпания: [название]\nРоль: [должность]\nКратко о ситуации: "},"email":{"address":"VladPast@gmail.com","subject":"Запрос на диагностическую беседу","body":"Здравствуйте, Владимир.\n\nПишу по поводу диагностической беседы.\n\nКомпания: [название]\nРоль: [должность]\nКратко о ситуации: "},"phone":{"number":"+79165090188","display":"+7 (916) 509-01-88"}}'>
+            <button type="button" class="contact-btn primary contact-btn-toggle-main" aria-label="Выберите способ связи" aria-expanded="false" data-analytics="cta_menu_open_cases">
+              <span class="btn-icon">🤝</span>
+              <span class="btn-text">Запросить диагностическую беседу</span>
+              <span class="btn-toggle">▾</span>
+            </button>
+            <div class="contact-options">
+              <a href="#" class="contact-option" data-channel="telegram" data-analytics="cta_telegram">
                 <span class="option-icon">✈️</span>
                 <span class="option-text">Telegram</span>
+                <span class="option-hint">(приложение или веб)</span>
               </a>
-              <a href="https://wa.me/79165090188?text=Здравствуйте%2C%20Владимир.%20Пишу%20по%20поводу%20диагностической%20беседы.%0A%0AКомпания%3A%20%5Bназвание%5D%0AРоль%3A%20%5Bдолжность%5D%0AКратко%20о%20ситуации%3A%20"
-                 class="contact-option"
-                 target="_blank"
-                 rel="noopener"
-                 data-analytics="cta_whatsapp">
+              <a href="#" class="contact-option" data-channel="whatsapp" data-analytics="cta_whatsapp">
                 <span class="option-icon">💬</span>
                 <span class="option-text">WhatsApp</span>
+                <span class="option-hint">(приложение или веб)</span>
               </a>
-              <a href="mailto:VladPast@gmail.com?subject=Запрос%20на%20диагностическую%20беседу&body=Здравствуйте%2C%20Владимир.%0A%0AПишу%20по%20поводу%20диагностической%20беседы.%0A%0AКомпания%3A%20%5Bназвание%5D%0AРоль%3A%20%5Bдолжность%5D%0AКратко%20о%20ситуации%3A%20"
-                 class="contact-option"
-                 data-analytics="cta_email">
+              <a href="#" class="contact-option" data-channel="email" data-analytics="cta_email">
                 <span class="option-icon">✉️</span>
                 <span class="option-text">Email</span>
+                <span class="option-hint">(копировать или открыть)</span>
               </a>
-              <a href="tel:+79165090188"
-                 class="contact-option"
-                 data-analytics="cta_phone">
+              <a href="#" class="contact-option" data-channel="phone" data-analytics="cta_phone">
                 <span class="option-icon">📞</span>
                 <span class="option-text">Позвонить</span>
+                <span class="option-hint">(копировать или набрать)</span>
               </a>
             </div>
             <p class="contact-note">
-              <span class="note-main">Ответ в течение 24 часов в любом канале</span>
-              <span class="note-sub">Конфиденциально. Можно кратко описать ситуацию в первом сообщении.</span>
+              <span class="note-main">↓ Выберите удобный способ связи</span>
+              <span class="note-sub">Ответ в течение 24 часов. Конфиденциально.</span>
             </p>
           </div>
         </div>
@@ -483,53 +451,37 @@
         </div>
         <div class="cases-cta">
           <p>Если вы увидели свои риски — обсудим их до того, как они реализовались.</p>
-          <div class="contact-selector" id="risks-contact-block">
-            <div class="contact-btn-wrap">
-              <a href="https://t.me/VladimirPastushenko?text=Здравствуйте%2C%20Владимир.%20Пишу%20по%20поводу%20диагностической%20беседы.%0A%0AКомпания%3A%20%5Bназвание%5D%0AРоль%3A%20%5Bдолжность%5D%0AКратко%20о%20ситуации%3A%20"
-                 class="contact-btn primary"
-                 target="_blank"
-                 rel="noopener"
-                 data-analytics="cta_telegram_risks">
-                <span class="btn-icon">🤝</span>
-                <span class="btn-text">Запросить диагностическую беседу</span>
-              </a>
-              <button type="button" class="contact-btn-toggle" aria-label="Другие способы связи" aria-expanded="false">
-                <span class="btn-toggle">▾</span>
-              </button>
-            </div>
-            <div class="contact-options" id="risks-contact-options">
-              <a href="https://t.me/VladimirPastushenko?text=Здравствуйте%2C%20Владимир.%20Пишу%20по%20поводу%20диагностической%20беседы.%0A%0AКомпания%3A%20%5Bназвание%5D%0AРоль%3A%20%5Bдолжность%5D%0AКратко%20о%20ситуации%3A%20"
-                 class="contact-option"
-                 target="_blank"
-                 rel="noopener"
-                 data-analytics="cta_telegram_dropdown_risks">
+          <div class="contact-selector" id="risks-contact-block" data-contact-data='{"telegram":{"username":"VladimirPastushenko","text":"Здравствуйте, Владимир. Пишу по поводу диагностической беседы.\n\nКомпания: [название]\nРоль: [должность]\nКратко о ситуации: "},"whatsapp":{"phone":"79165090188","text":"Здравствуйте, Владимир. Пишу по поводу диагностической беседы.\n\nКомпания: [название]\nРоль: [должность]\nКратко о ситуации: "},"email":{"address":"VladPast@gmail.com","subject":"Запрос на диагностическую беседу","body":"Здравствуйте, Владимир.\n\nПишу по поводу диагностической беседы.\n\nКомпания: [название]\nРоль: [должность]\nКратко о ситуации: "},"phone":{"number":"+79165090188","display":"+7 (916) 509-01-88"}}'>
+            <button type="button" class="contact-btn primary contact-btn-toggle-main" aria-label="Выберите способ связи" aria-expanded="false" data-analytics="cta_menu_open_risks">
+              <span class="btn-icon">🤝</span>
+              <span class="btn-text">Запросить диагностическую беседу</span>
+              <span class="btn-toggle">▾</span>
+            </button>
+            <div class="contact-options">
+              <a href="#" class="contact-option" data-channel="telegram" data-analytics="cta_telegram_risks">
                 <span class="option-icon">✈️</span>
                 <span class="option-text">Telegram</span>
+                <span class="option-hint">(приложение или веб)</span>
               </a>
-              <a href="https://wa.me/79165090188?text=Здравствуйте%2C%20Владимир.%20Пишу%20по%20поводу%20диагностической%20беседы.%0A%0AКомпания%3A%20%5Bназвание%5D%0AРоль%3A%20%5Bдолжность%5D%0AКратко%20о%20ситуации%3A%20"
-                 class="contact-option"
-                 target="_blank"
-                 rel="noopener"
-                 data-analytics="cta_whatsapp_risks">
+              <a href="#" class="contact-option" data-channel="whatsapp" data-analytics="cta_whatsapp_risks">
                 <span class="option-icon">💬</span>
                 <span class="option-text">WhatsApp</span>
+                <span class="option-hint">(приложение или веб)</span>
               </a>
-              <a href="mailto:VladPast@gmail.com?subject=Запрос%20на%20диагностическую%20беседу&body=Здравствуйте%2C%20Владимир.%0A%0AПишу%20по%20поводу%20диагностической%20беседы.%0A%0AКомпания%3A%20%5Bназвание%5D%0AРоль%3A%20%5Bдолжность%5D%0AКратко%20о%20ситуации%3A%20"
-                 class="contact-option"
-                 data-analytics="cta_email_risks">
+              <a href="#" class="contact-option" data-channel="email" data-analytics="cta_email_risks">
                 <span class="option-icon">✉️</span>
                 <span class="option-text">Email</span>
+                <span class="option-hint">(копировать или открыть)</span>
               </a>
-              <a href="tel:+79165090188"
-                 class="contact-option"
-                 data-analytics="cta_phone_risks">
+              <a href="#" class="contact-option" data-channel="phone" data-analytics="cta_phone_risks">
                 <span class="option-icon">📞</span>
                 <span class="option-text">Позвонить</span>
+                <span class="option-hint">(копировать или набрать)</span>
               </a>
             </div>
             <p class="contact-note">
-              <span class="note-main">Ответ в течение 24 часов в любом канале</span>
-              <span class="note-sub">Конфиденциально. Можно кратко описать ситуацию в первом сообщении.</span>
+              <span class="note-main">↓ Выберите удобный способ связи</span>
+              <span class="note-sub">Ответ в течение 24 часов. Конфиденциально.</span>
             </p>
           </div>
         </div>
@@ -597,53 +549,37 @@
         </div>
         <div class="cases-cta">
           <p>Если Вы увидели подходящие форматы сотрудничества — связывайтесь прямо сейчас!</p>
-          <div class="contact-selector" id="formats-contact-block">
-            <div class="contact-btn-wrap">
-              <a href="https://t.me/VladimirPastushenko?text=Здравствуйте%2C%20Владимир.%20Пишу%20по%20поводу%20диагностической%20беседы.%0A%0AКомпания%3A%20%5Bназвание%5D%0AРоль%3A%20%5Bдолжность%5D%0AКратко%20о%20ситуации%3A%20"
-                 class="contact-btn primary"
-                 target="_blank"
-                 rel="noopener"
-                 data-analytics="cta_telegram_formats">
-                <span class="btn-icon">🤝</span>
-                <span class="btn-text">Запросить диагностическую беседу</span>
-              </a>
-              <button type="button" class="contact-btn-toggle" aria-label="Другие способы связи" aria-expanded="false">
-                <span class="btn-toggle">▾</span>
-              </button>
-            </div>
-            <div class="contact-options" id="formats-contact-options">
-              <a href="https://t.me/VladimirPastushenko?text=Здравствуйте%2C%20Владимир.%20Пишу%20по%20поводу%20диагностической%20беседы.%0A%0AКомпания%3A%20%5Bназвание%5D%0AРоль%3A%20%5Bдолжность%5D%0AКратко%20о%20ситуации%3A%20"
-                 class="contact-option"
-                 target="_blank"
-                 rel="noopener"
-                 data-analytics="cta_telegram_dropdown_formats">
+          <div class="contact-selector" id="formats-contact-block" data-contact-data='{"telegram":{"username":"VladimirPastushenko","text":"Здравствуйте, Владимир. Пишу по поводу диагностической беседы.\n\nКомпания: [название]\nРоль: [должность]\nКратко о ситуации: "},"whatsapp":{"phone":"79165090188","text":"Здравствуйте, Владимир. Пишу по поводу диагностической беседы.\n\nКомпания: [название]\nРоль: [должность]\nКратко о ситуации: "},"email":{"address":"VladPast@gmail.com","subject":"Запрос на диагностическую беседу","body":"Здравствуйте, Владимир.\n\nПишу по поводу диагностической беседы.\n\nКомпания: [название]\nРоль: [должность]\nКратко о ситуации: "},"phone":{"number":"+79165090188","display":"+7 (916) 509-01-88"}}'>
+            <button type="button" class="contact-btn primary contact-btn-toggle-main" aria-label="Выберите способ связи" aria-expanded="false" data-analytics="cta_menu_open_formats">
+              <span class="btn-icon">🤝</span>
+              <span class="btn-text">Запросить диагностическую беседу</span>
+              <span class="btn-toggle">▾</span>
+            </button>
+            <div class="contact-options">
+              <a href="#" class="contact-option" data-channel="telegram" data-analytics="cta_telegram_formats">
                 <span class="option-icon">✈️</span>
                 <span class="option-text">Telegram</span>
+                <span class="option-hint">(приложение или веб)</span>
               </a>
-              <a href="https://wa.me/79165090188?text=Здравствуйте%2C%20Владимир.%20Пишу%20по%20поводу%20диагностической%20беседы.%0A%0AКомпания%3A%20%5Bназвание%5D%0AРоль%3A%20%5Bдолжность%5D%0AКратко%20о%20ситуации%3A%20"
-                 class="contact-option"
-                 target="_blank"
-                 rel="noopener"
-                 data-analytics="cta_whatsapp_formats">
+              <a href="#" class="contact-option" data-channel="whatsapp" data-analytics="cta_whatsapp_formats">
                 <span class="option-icon">💬</span>
                 <span class="option-text">WhatsApp</span>
+                <span class="option-hint">(приложение или веб)</span>
               </a>
-              <a href="mailto:VladPast@gmail.com?subject=Запрос%20на%20диагностическую%20беседу&body=Здравствуйте%2C%20Владимир.%0A%0AПишу%20по%20поводу%20диагностической%20беседы.%0A%0AКомпания%3A%20%5Bназвание%5D%0AРоль%3A%20%5Bдолжность%5D%0AКратко%20о%20ситуации%3A%20"
-                 class="contact-option"
-                 data-analytics="cta_email_formats">
+              <a href="#" class="contact-option" data-channel="email" data-analytics="cta_email_formats">
                 <span class="option-icon">✉️</span>
                 <span class="option-text">Email</span>
+                <span class="option-hint">(копировать или открыть)</span>
               </a>
-              <a href="tel:+79165090188"
-                 class="contact-option"
-                 data-analytics="cta_phone_formats">
+              <a href="#" class="contact-option" data-channel="phone" data-analytics="cta_phone_formats">
                 <span class="option-icon">📞</span>
                 <span class="option-text">Позвонить</span>
+                <span class="option-hint">(копировать или набрать)</span>
               </a>
             </div>
             <p class="contact-note">
-              <span class="note-main">Ответ в течение 24 часов в любом канале</span>
-              <span class="note-sub">Конфиденциально. Можно кратко описать ситуацию в первом сообщении.</span>
+              <span class="note-main">↓ Выберите удобный способ связи</span>
+              <span class="note-sub">Ответ в течение 24 часов. Конфиденциально.</span>
             </p>
           </div>
         </div>
@@ -1085,6 +1021,10 @@
     </button>
   </footer>
 
+  <div id="contact-toast" class="contact-toast" aria-hidden="true">
+    <span class="toast-icon">✓</span>
+    <span class="toast-text">Скопировано в буфер обмена</span>
+  </div>
   <script src="main.js?v=20260505"></script>
 </body>
 </html>

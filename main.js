@@ -113,194 +113,206 @@ document.addEventListener("DOMContentLoaded", () => {
   // Начальное состояние
   updateActiveNav();
 
-  // Блок «Диагностическая беседа» (главный CTA): выпадающий список и аналитика
-  const sessionMainContact = document.getElementById("session-main-contact-block");
-  if (sessionMainContact) {
-    const toggleBtn = sessionMainContact.querySelector(".contact-btn-toggle");
-    const options = document.getElementById("session-main-contact-options");
-    if (toggleBtn && options) {
-      toggleBtn.addEventListener("click", (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        const isOpen = sessionMainContact.classList.toggle("open");
-        options.classList.toggle("show", isOpen);
-        toggleBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
-      });
-      document.addEventListener("click", (e) => {
-        if (!sessionMainContact.contains(e.target)) {
-          sessionMainContact.classList.remove("open");
-          options.classList.remove("show");
-          toggleBtn.setAttribute("aria-expanded", "false");
-        }
-      });
-      options.querySelectorAll(".contact-option").forEach((link) => {
-        link.addEventListener("click", () => {
-          sessionMainContact.classList.remove("open");
-          options.classList.remove("show");
-          toggleBtn.setAttribute("aria-expanded", "false");
-        });
-      });
-    }
-    sessionMainContact.querySelectorAll("[data-analytics]").forEach((el) => {
-      el.addEventListener("click", () => {
-        const goal = el.getAttribute("data-analytics");
-        if (typeof ym !== "undefined") {
-          ym(106909561, "reachGoal", goal);
-        }
-      });
+  // ----- Contact selector: умные fallback и единая инициализация -----
+  function openTelegramWithFallback(username, text) {
+    const decodedText = typeof text === "string" ? text : "";
+    const webUrl = `https://t.me/${username}${decodedText ? "?text=" + encodeURIComponent(decodedText) : ""}`;
+    const appUrl = `tg://resolve?domain=${username}${decodedText ? "&text=" + encodeURIComponent(decodedText) : ""}`;
+    let fallbackTriggered = false;
+    window.location.href = appUrl;
+    const fallbackTimer = setTimeout(() => {
+      if (!fallbackTriggered && document.visibilityState === "visible") {
+        fallbackTriggered = true;
+        window.location.href = webUrl;
+      }
+    }, 1500);
+    const onVisibilityChange = () => {
+      if (document.visibilityState === "hidden") {
+        fallbackTriggered = true;
+        clearTimeout(fallbackTimer);
+        document.removeEventListener("visibilitychange", onVisibilityChange);
+      }
+    };
+    document.addEventListener("visibilitychange", onVisibilityChange);
+    window.addEventListener("pagehide", () => {
+      clearTimeout(fallbackTimer);
+      document.removeEventListener("visibilitychange", onVisibilityChange);
     });
   }
 
-  // Блок «Связаться» в герое: выпадающий список и аналитика
-  const heroContact = document.getElementById("hero-contact-block");
-  if (heroContact) {
-    const toggleBtn = heroContact.querySelector(".contact-btn-toggle");
-    const options = document.getElementById("hero-contact-options");
-    if (toggleBtn && options) {
-      toggleBtn.addEventListener("click", (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        const isOpen = heroContact.classList.toggle("open");
-        options.classList.toggle("show", isOpen);
-        toggleBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
-      });
-      document.addEventListener("click", (e) => {
-        if (!heroContact.contains(e.target)) {
-          heroContact.classList.remove("open");
-          options.classList.remove("show");
-          toggleBtn.setAttribute("aria-expanded", "false");
+  function openWhatsAppWithFallback(phone, text) {
+    const isMobile = /Android|iPhone|iPad/i.test(navigator.userAgent);
+    const decodedText = typeof text === "string" ? text : "";
+    const webUrl = `https://web.whatsapp.com/send?phone=${phone.replace(/^\+/, "")}&text=${encodeURIComponent(decodedText)}`;
+    const appUrl = `https://wa.me/${phone.replace(/^\+/, "")}?text=${encodeURIComponent(decodedText)}`;
+    if (isMobile) {
+      let fallbackTriggered = false;
+      window.location.href = appUrl;
+      const fallbackTimer = setTimeout(() => {
+        if (!fallbackTriggered && document.visibilityState === "visible") {
+          fallbackTriggered = true;
+          window.location.href = webUrl;
         }
-      });
-      options.querySelectorAll(".contact-option").forEach((link) => {
-        link.addEventListener("click", () => {
-          heroContact.classList.remove("open");
-          options.classList.remove("show");
-          toggleBtn.setAttribute("aria-expanded", "false");
-        });
-      });
+      }, 1500);
+      const onVisibilityChange = () => {
+        if (document.visibilityState === "hidden") {
+          fallbackTriggered = true;
+          clearTimeout(fallbackTimer);
+          document.removeEventListener("visibilitychange", onVisibilityChange);
+        }
+      };
+      document.addEventListener("visibilitychange", onVisibilityChange);
+    } else {
+      window.open(webUrl, "_blank", "noopener");
     }
-    heroContact.querySelectorAll("[data-analytics]").forEach((el) => {
-      el.addEventListener("click", () => {
-        const goal = el.getAttribute("data-analytics");
-        if (typeof ym !== "undefined") {
-          ym(106909561, "reachGoal", goal);
-        }
-      });
-    });
   }
 
-  // Блок «Связаться» (раздел Ситуации): выпадающий список и аналитика
-  const sessionContact = document.getElementById("session-contact-block");
-  if (sessionContact) {
-    const toggleBtn = sessionContact.querySelector(".contact-btn-toggle");
-    const options = document.getElementById("session-contact-options");
-    if (toggleBtn && options) {
-      toggleBtn.addEventListener("click", (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        const isOpen = sessionContact.classList.toggle("open");
-        options.classList.toggle("show", isOpen);
-        toggleBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
-      });
-      document.addEventListener("click", (e) => {
-        if (!sessionContact.contains(e.target)) {
-          sessionContact.classList.remove("open");
-          options.classList.remove("show");
-          toggleBtn.setAttribute("aria-expanded", "false");
-        }
-      });
-      options.querySelectorAll(".contact-option").forEach((link) => {
-        link.addEventListener("click", () => {
-          sessionContact.classList.remove("open");
-          options.classList.remove("show");
-          toggleBtn.setAttribute("aria-expanded", "false");
-        });
-      });
+  async function copyToClipboard(text, displayText) {
+    try {
+      await navigator.clipboard.writeText(text);
+      showToast(displayText ? `Скопировано: ${displayText}` : "Скопировано в буфер обмена");
+      return true;
+    } catch (err) {
+      const textarea = document.createElement("textarea");
+      textarea.value = text;
+      textarea.style.position = "fixed";
+      textarea.style.opacity = "0";
+      document.body.appendChild(textarea);
+      textarea.select();
+      try {
+        document.execCommand("copy");
+        showToast(displayText ? `Скопировано: ${displayText}` : "Скопировано в буфер обмена");
+        return true;
+      } catch (err2) {
+        showToast("Не удалось скопировать. Выберите вручную.");
+        return false;
+      } finally {
+        document.body.removeChild(textarea);
+      }
     }
-    sessionContact.querySelectorAll("[data-analytics]").forEach((el) => {
-      el.addEventListener("click", () => {
-        const goal = el.getAttribute("data-analytics");
-        if (typeof ym !== "undefined") {
-          ym(106909561, "reachGoal", goal);
-        }
-      });
-    });
   }
 
-  // Блок «Связаться» (раздел Роли и форматы работы): выпадающий список и аналитика
-  const formatsContact = document.getElementById("formats-contact-block");
-  if (formatsContact) {
-    const toggleBtn = formatsContact.querySelector(".contact-btn-toggle");
-    const options = document.getElementById("formats-contact-options");
-    if (toggleBtn && options) {
-      toggleBtn.addEventListener("click", (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        const isOpen = formatsContact.classList.toggle("open");
-        options.classList.toggle("show", isOpen);
-        toggleBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
-      });
-      document.addEventListener("click", (e) => {
-        if (!formatsContact.contains(e.target)) {
-          formatsContact.classList.remove("open");
-          options.classList.remove("show");
-          toggleBtn.setAttribute("aria-expanded", "false");
-        }
-      });
-      options.querySelectorAll(".contact-option").forEach((link) => {
-        link.addEventListener("click", () => {
-          formatsContact.classList.remove("open");
-          options.classList.remove("show");
-          toggleBtn.setAttribute("aria-expanded", "false");
-        });
-      });
-    }
-    formatsContact.querySelectorAll("[data-analytics]").forEach((el) => {
-      el.addEventListener("click", () => {
-        const goal = el.getAttribute("data-analytics");
-        if (typeof ym !== "undefined") {
-          ym(106909561, "reachGoal", goal);
-        }
-      });
-    });
+  function showToast(message) {
+    const toast = document.getElementById("contact-toast");
+    if (!toast) return;
+    const textEl = toast.querySelector(".toast-text");
+    if (textEl) textEl.textContent = message;
+    toast.classList.add("show");
+    toast.setAttribute("aria-hidden", "false");
+    setTimeout(() => {
+      toast.classList.remove("show");
+      toast.setAttribute("aria-hidden", "true");
+    }, 3000);
   }
 
-  // Блок «Обсудить риски» (раздел Риски): тот же выпадающий список и аналитика
-  const risksContact = document.getElementById("risks-contact-block");
-  if (risksContact) {
-    const toggleBtn = risksContact.querySelector(".contact-btn-toggle");
-    const options = document.getElementById("risks-contact-options");
-    if (toggleBtn && options) {
-      toggleBtn.addEventListener("click", (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        const isOpen = risksContact.classList.toggle("open");
-        options.classList.toggle("show", isOpen);
-        toggleBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
-      });
-      document.addEventListener("click", (e) => {
-        if (!risksContact.contains(e.target)) {
-          risksContact.classList.remove("open");
-          options.classList.remove("show");
-          toggleBtn.setAttribute("aria-expanded", "false");
-        }
-      });
-      options.querySelectorAll(".contact-option").forEach((link) => {
-        link.addEventListener("click", () => {
-          risksContact.classList.remove("open");
-          options.classList.remove("show");
-          toggleBtn.setAttribute("aria-expanded", "false");
-        });
-      });
+  function isDesktop() {
+    return !/Android|iPhone|iPad/i.test(navigator.userAgent);
+  }
+
+  function handleEmail(address, subject, body) {
+    if (isDesktop()) {
+      copyToClipboard(address, address);
+      setTimeout(() => {
+        showToast("Email скопирован. Откройте ваш почтовый клиент.");
+      }, 1500);
+    } else {
+      window.location.href = `mailto:${address}?subject=${encodeURIComponent(subject || "")}&body=${encodeURIComponent(body || "")}`;
     }
-    risksContact.querySelectorAll("[data-analytics]").forEach((el) => {
-      el.addEventListener("click", () => {
-        const goal = el.getAttribute("data-analytics");
-        if (typeof ym !== "undefined") {
+  }
+
+  function handlePhone(number, displayNumber) {
+    if (isDesktop()) {
+      copyToClipboard(number, displayNumber || number);
+      setTimeout(() => {
+        showToast("Номер скопирован. Наберите в вашем приложении.");
+      }, 1500);
+    } else {
+      window.location.href = `tel:${number}`;
+    }
+  }
+
+  if (!document.getElementById("contact-toast")) {
+    const toast = document.createElement("div");
+    toast.id = "contact-toast";
+    toast.className = "contact-toast";
+    toast.setAttribute("aria-hidden", "true");
+    toast.innerHTML = '<span class="toast-icon">✓</span><span class="toast-text">Скопировано в буфер обмена</span>';
+    document.body.appendChild(toast);
+  }
+
+  document.querySelectorAll(".contact-selector").forEach((selector) => {
+    const toggleBtn = selector.querySelector(".contact-btn-toggle-main");
+    const options = selector.querySelector(".contact-options");
+    if (!toggleBtn || !options) return;
+
+    let contactData = {};
+    try {
+      contactData = JSON.parse(selector.dataset.contactData || "{}");
+    } catch (e) {
+      console.error("Invalid contact data JSON:", e);
+    }
+
+    toggleBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const isExpanded = toggleBtn.getAttribute("aria-expanded") === "true";
+      toggleBtn.setAttribute("aria-expanded", !isExpanded);
+      options.classList.toggle("show");
+      selector.classList.toggle("open");
+      if (!isExpanded && typeof ym !== "undefined") {
+        ym(106909561, "reachGoal", toggleBtn.dataset.analytics || "cta_menu_open");
+      }
+    });
+
+    options.querySelectorAll(".contact-option").forEach((option) => {
+      option.addEventListener("click", (e) => {
+        e.preventDefault();
+        const channel = option.dataset.channel;
+        const goal = option.dataset.analytics;
+        if (typeof ym !== "undefined" && goal) {
           ym(106909561, "reachGoal", goal);
         }
+
+        switch (channel) {
+          case "telegram":
+            if (contactData.telegram) {
+              openTelegramWithFallback(contactData.telegram.username, contactData.telegram.text);
+            }
+            break;
+          case "whatsapp":
+            if (contactData.whatsapp) {
+              openWhatsAppWithFallback(contactData.whatsapp.phone, contactData.whatsapp.text);
+            }
+            break;
+          case "email":
+            if (contactData.email) {
+              handleEmail(
+                contactData.email.address,
+                contactData.email.subject,
+                contactData.email.body
+              );
+            }
+            break;
+          case "phone":
+            if (contactData.phone) {
+              handlePhone(contactData.phone.number, contactData.phone.display);
+            }
+            break;
+        }
+
+        options.classList.remove("show");
+        selector.classList.remove("open");
+        toggleBtn.setAttribute("aria-expanded", "false");
       });
     });
-  }
+
+    document.addEventListener("click", (e) => {
+      if (!selector.contains(e.target) && options.classList.contains("show")) {
+        options.classList.remove("show");
+        selector.classList.remove("open");
+        toggleBtn.setAttribute("aria-expanded", "false");
+      }
+    });
+  });
 });
 
