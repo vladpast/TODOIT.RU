@@ -251,6 +251,10 @@ section.section.hero:not(#hero) {
   margin: 0 0 10px;
 }
 
+.hero-kicker-block {
+  white-space: nowrap;
+}
+
 .hero-title {
   font-size: clamp(32px, 4vw, 44px);
   line-height: 1.1;
