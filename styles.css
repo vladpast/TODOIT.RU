@@ -256,7 +256,7 @@ section.section.hero:not(#hero) {
 }
 
 .hero-title {
-  font-size: clamp(32px, 4vw, 44px);
+  font-size: clamp(34px, 4vw, 46px);
   line-height: 1.1;
   margin: 0 0 14px;
 }
@@ -264,7 +264,9 @@ section.section.hero:not(#hero) {
 .hero-subtitle {
   margin: 0 0 18px;
   color: var(--text-muted);
-  max-width: 36rem;
+  max-width: 100%;
+  text-align: justify;
+  text-align-last: left;
 }
 
 .hero-badges {
