@@ -372,6 +372,7 @@ section.section.hero:not(#hero) {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 8px;
   padding: 16px 20px;
   border-radius: var(--radius-md);
   border: 1px solid var(--border-subtle);
@@ -388,6 +389,14 @@ section.section.hero:not(#hero) {
   border-color: var(--accent-soft);
   color: #e5e9ff;
   background: rgba(14, 18, 40, 0.98);
+}
+
+/* ===== vCard кнопки ===== */
+
+/* Hero секция — кнопка vCard.
+   Наследует стили от .btn-hero-secondary, добавляем только отступ сверху. */
+.vcard-btn {
+  margin-top: 8px;
 }
 
 .btn {
@@ -1659,6 +1668,9 @@ section[aria-labelledby="questions-title"] .container {
 }
 
 .contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   font-size: 14px;
   color: #dbe6ff;
   padding: 4px 0;
@@ -1675,6 +1687,60 @@ section[aria-labelledby="questions-title"] .container {
   margin-top: 8px;
   font-size: 13px;
   color: var(--text-muted);
+}
+
+/* Footer секция — ссылка vCard */
+.vcard-footer-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 0;
+  padding: 4px 0;
+  color: #dbe6ff;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.vcard-footer-link:hover {
+  color: #ffffff;
+  transform: translateX(1px);
+}
+
+.vcard-footer-link .vcard-icon {
+  font-size: 14px;
+}
+
+.contact-icon {
+  font-size: 14px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .vcard-footer-link {
+    color: #dbe6ff;
+  }
+  
+  .vcard-footer-link:hover {
+    color: #ffffff;
+  }
+}
+
+@media (max-width: 768px) {
+  .vcard-btn {
+    width: 100%;
+    margin-top: 10px;
+    padding: 14px 20px;
+    font-size: 15px;
+  }
+  
+  .vcard-footer-link {
+    width: auto;
+    margin-top: 0;
+    padding: 4px 0;
+    font-size: 14px;
+  }
 }
 
 .to-top {
