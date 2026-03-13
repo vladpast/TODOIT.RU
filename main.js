@@ -334,5 +334,24 @@ document.addEventListener("DOMContentLoaded", () => {
   } else {
     setTimeout(initContactSelectors, 1);
   }
+
+  // Cookie-баннер (152-ФЗ): показ и управление согласием
+  (function initCookieBanner() {
+    if (localStorage.getItem('cookie-consent') === 'true') return;
+
+    var banner = document.getElementById('cookie-banner');
+    var btn = document.getElementById('cookie-accept');
+    if (!banner || !btn) return;
+
+    banner.style.display = 'block';
+
+    btn.addEventListener('click', function () {
+      localStorage.setItem('cookie-consent', 'true');
+      banner.style.display = 'none';
+      if (typeof initYandexMetrica === 'function') {
+        initYandexMetrica();
+      }
+    });
+  })();
 });
 

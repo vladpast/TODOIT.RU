@@ -1670,6 +1670,17 @@ section[aria-labelledby="questions-title"] .container {
   margin-bottom: 0;
 }
 
+.footer-privacy a {
+  color: rgba(163, 173, 199, 0.7);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color var(--transition-fast);
+}
+
+.footer-privacy a:hover {
+  color: var(--accent);
+}
+
 .footer-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.4fr);
@@ -2129,5 +2140,78 @@ section[aria-labelledby="questions-title"] .container {
     font-size: 10px;
     color: #6b7280;
     word-break: break-all;
+  }
+}
+
+/* ===== Cookie Banner (152-ФЗ) ===== */
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(5, 7, 19, 0.97);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: var(--text-main);
+  padding: 18px 24px;
+  z-index: 10000;
+  box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.5);
+  border-top: 1px solid var(--border-subtle);
+}
+
+.cookie-content {
+  max-width: 980px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+
+.cookie-content p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+.cookie-content a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.cookie-content a:hover {
+  color: var(--text-main);
+}
+
+.cookie-btn {
+  flex-shrink: 0;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 10px 24px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  border-radius: var(--radius-md);
+  white-space: nowrap;
+  transition: background var(--transition-fast), transform var(--transition-fast);
+}
+
+.cookie-btn:hover {
+  background: #3a75e0;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 768px) {
+  .cookie-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 14px;
+  }
+
+  .cookie-btn {
+    width: 100%;
   }
 }
