@@ -503,9 +503,10 @@ section.section.hero:not(#hero) {
 @media (min-width: 1024px) {
   .hero-photo-wrapper {
     max-width: 320px;
-    aspect-ratio: 4 / 3;
-    height: auto;
+    width: 320px;
+    height: 240px; /* фиксированное 4:3 на широких экранах */
     flex: 0 0 320px;
+    aspect-ratio: auto;
   }
 }
 
