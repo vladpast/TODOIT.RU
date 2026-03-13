@@ -368,6 +368,10 @@ section.section.hero:not(#hero) {
   min-width: 200px;
 }
 
+.hero-actions .btn-hero-secondary {
+  white-space: nowrap;
+}
+
 .btn-hero-secondary {
   display: inline-flex;
   align-items: center;
@@ -396,7 +400,6 @@ section.section.hero:not(#hero) {
 /* Hero секция — кнопка vCard.
    Наследует стили от .btn-hero-secondary, добавляем только отступ сверху. */
 .vcard-btn {
-  margin-top: 8px;
 }
 
 .btn {
@@ -518,6 +521,14 @@ section.section.hero:not(#hero) {
   width: 100%;
   max-width: 980px;
   margin: 0 auto;
+}
+
+.hero-focus-metrics .hero-card {
+  border-radius: 28px;
+  border: 1px solid rgba(148, 163, 255, 0.35);
+  background: radial-gradient(circle at 0 0, rgba(79, 140, 255, 0.14), transparent 55%),
+    linear-gradient(135deg, rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 0.98));
+  box-shadow: var(--shadow-soft);
 }
 
 .hero-focus-diagnostic .hero-card {
