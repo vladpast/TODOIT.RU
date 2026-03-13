@@ -105,12 +105,13 @@
   <noscript><div><img src="https://mc.yandex.ru/watch/106909561" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
   
   <link rel="stylesheet" href="styles.css?v=20260318" />
+  <link rel="preload" as="image" href="DSC_1670_smol.webp" type="image/webp" />
   <link rel="preload" as="image" href="DSC_1670_smol.jpg" />
 </head>
 <body>
   <header class="site-header">
     <div class="container header-inner">
-      <a href="#hero" class="logo" aria-label="На главную секцию">
+      <a href="#hero" class="logo" aria-label="Vladimir Pastushenko — на главную">
         <span class="logo-mark"><img src="Favicon_VP BIG_METAL_Trasp.png" alt="VP" class="logo-img"></span>
         <span class="logo-text">Vladimir Pastushenko</span>
       </a>
@@ -138,14 +139,17 @@
         <div class="hero-shell" itemprop="provider" itemscope itemtype="https://schema.org/Person">
           <div class="hero-photo-column">
             <figure class="hero-photo-wrapper">
-              <img
-                src="DSC_1670_smol.jpg"
-                class="hero-photo"
-                alt="Владимир Пастушенко"
-                width="500"
-                height="752"
-                itemprop="image"
-              />
+              <picture>
+                <source srcset="DSC_1670_smol.webp" type="image/webp">
+                <img
+                  src="DSC_1670_smol.jpg"
+                  class="hero-photo"
+                  alt="Владимир Пастушенко"
+                  width="500"
+                  height="752"
+                  itemprop="image"
+                />
+              </picture>
             </figure>
           </div>
           <div class="hero-text">
